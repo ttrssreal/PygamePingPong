@@ -1,4 +1,5 @@
 import pygame
+import random
 
 
 # inherits from pygame's Sprite
@@ -34,6 +35,7 @@ class Ball(pygame.sprite.Sprite):
         if pygame.sprite.collide_mask(self, self.paddle):
             if self.xPos <= self.paddle.xPos:
                 self.velocity[0] *= -1
+                self.velocity[1] = random.randint(-8, 8)
                 self.xPos -= 7
             elif self.yPos <= self.paddle.yPos + self.paddle.rect[3]:
                 self.velocity[1] *= -1
